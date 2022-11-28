@@ -1,14 +1,48 @@
+body {
+    background-image: url("../img/textura03.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: auto;
+    background-attachment: fixed;
+}
+
+.border-img {
+    display: block;
+    margin-left: 40px;
+    margin-right: 40px;
+    max-width: 70%;
+    width: 200rem;
+    padding: 0.4rem;
+    border-radius: 40px;
+    border: 1px black solid;
+  }
+
+ 
+  img {
+    max-width: 600px;
+    max-height: 400px;
+    width: center;
+    height: center;
+  }
+
+
 .card-lateral{
 
     background-color: #000000;
     margin-top: 20px;
-    padding: 20px;
+    padding: 25px;
     color: #ffc107;
     font-weight: bold;
     text-decoration: none;
     text-align: center;
     box-shadow: 5px 5px 5px #85837c;
+    width: fit-content;
 
+}
+
+.sm-image {
+    width: 60%;
+    height: 60%;
 }
 
 .link-lateral:hover{
@@ -28,34 +62,5 @@
     box-shadow: 3px 3px 3px gray;
     padding: 20px;
     color: black;
-
-}
-
-.link-hover:hover{
-    text-decoration: none;
-}
-
-.foto-perfil{
-    text-align: center;
-}
-
-.dados{
-    font-weight: bold;
-}
-
-.descricao{
-
-    margin-left: -12%;
-
-}
-
-@media (max-width: 1300px)
-{
-
-    .descricao{
-
-        margin-left: 1px;
-    
-    }
 
 }

@@ -11,7 +11,6 @@ from django.shortcuts import get_object_or_404, redirect, render
 from .models import Ativacao
 from .util import email_html, password_is_valid
 
-
 # Create your views here.
 def cadastro(request):
     if request.method == "GET":
@@ -38,7 +37,7 @@ def cadastro(request):
         ativacao = Ativacao(Token=token, user=user)
         ativacao.save()
 
-        path_template = os.path.join(settings.BASE_DIR, 'autenticacao/templates/emails/cadastro_confirmado.html')
+        path_template = os.path.join(settings.BASE_DIR, 'envia_email/templates/emails/cadastro_confirmado.html')
         email_html(path_template, 'Cadastro confirmado', [email,], username=username, link_ativacao=f"127.0.0.1:8000/auth/ativar_conta/{token}")
 
         messages.add_message(request, constants.SUCCESS, 'Usuário cadastrado com sucesso')
@@ -62,11 +61,11 @@ def logar(request):
         return redirect('/auth/logar')
     else:
         auth.login(request, usuario)
-        return redirect('/plataforma')
+        return redirect('/plataforma:hone')
     
 def sair(request):
     auth.logout(request)
-    return redirect('/auth/logar')
+    return redirect('plataforma:home')
 
 def ativar_conta(request, token):
     token = get_object_or_404(Ativacao, token=token)

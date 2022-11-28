@@ -5,11 +5,13 @@
 
 
 .logo_sidebar{
+    margin-top: 8%;
     text-align: center;
+    width: fit-content;
 }
 
 .img_logo_sidebar{
-    width: 100%;
+    width: 70%;
  
 
 }
@@ -17,13 +19,16 @@
 .sidebar{
 
     background-image: url("/static/autenticacao/img/transporte_1.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: auto;
 
 }
 
 .area_cadastrar{
     margin-top: 8%;
     margin-left: 15%;
-    width: 70%;
+    width: 60%;
 }
 
 .titulo{

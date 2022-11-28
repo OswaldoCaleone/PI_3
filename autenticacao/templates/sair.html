@@ -1,0 +1,25 @@
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'autenticacao/css/autenticar.css' %}">
+{% endblock %}
+
+{% block 'body' %}
+
+<!--centraliza-->
+<div class="box">
+    <!--cria card-->
+    <div class="card-body text-primary">
+        <!--solicita token de autenticação-->
+            <form action="{% url 'logar' %}" method="POST">{% csrf_token %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert {{message.tags}}">
+                            {{message}}
+                        </div>
+                    {% endfor %}
+                {% endif 
+                <p>Deslogado!</p>
+                <a href="{% url 'logar'%}">Clique aqui para voltar a logar.</a>
+            </form>
+    </div>
+</div>    
+{% endblock %}

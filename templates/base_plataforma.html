@@ -1,52 +1,52 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block 'head' %}
-    <Link rel="stylesheet" href="{% static 'plataforma/css/css.css' %}">
-
-{% endblock %}
-
 {% block 'body' %}
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
-                <a href="{% url 'plataforma' %}" class="link-lateral">
+                <a href="{% url 'plataforma:home' %}" class="link-lateral">
                     <div class="card-lateral">
                         <img src="{% static 'plataforma/img/pais.png' %}">
                         <br>
                         <br>
-
-                        <h3>Gerenciador de cadastros</h3>
+                        <div id="texto" class="m-auto">
+                            <h3>Gerenciador de cadastros</h3>
+                        </div>
                     </div>
                 </a>
 
-                <a href="{% url 'escolas' %}" class="link-lateral">
+                <a href="{% url 'plataforma:escolas_parceiras' %}" class="link-lateral">
                     <div class="card-lateral">
                         <img src="{% static 'plataforma/img/escola.png' %}">
                         <br>
                         <br>
-
-                        <h3>Escolas</h3>
+                        <div id="texto" class="m-auto">
+                            <h3>Escolas parceiras</h3>
+                        </div>
                     </div>
                 </a>
 
-                <a href="{% url 'responsaveis' %}" class="link-lateral">
+                <a href="{% url 'plataforma:localizacao' %}" class="link-lateral">
                     <div class="card-lateral">
                         <img src="{% static 'plataforma/img/pais.png' %}">
                         <br>
                         <br>
-
-                        <h3>Responsáveis</h3>
+                        <div id="texto" class="m-auto">
+                            <h3>Localização</h3>
+                        </div>
                     </div>
                 </a>
 
-                <a href="{% url 'transportadores' %}" class="link-lateral">
+                <a href="{% url 'plataforma:consultar_transportadores' %}" class="link-lateral" >
                     <div class="card-lateral">
-                        <img src="{% static 'plataforma/img/transporte.png' %}">
+                        <img src="{% static 'plataforma/img/transporte.png' %}" >
                         <br>
                         <br>
-
-                        <h3>Transportadores</h3>
+                        <div id="texto" class="m-auto">
+                            <h3>Transportadores</h3>
+                        </div>
                     </div>
                 </a>
 
