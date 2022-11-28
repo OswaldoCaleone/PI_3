@@ -1,0 +1,53 @@
+{% extends 'base_plataforma.html' %}
+{% load static %}
+
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'plataforma/css.css' %}">
+
+{% endblock %}
+
+{% block 'body' %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="box">
+    <!--cria card-->
+    <div class="card-body text-primary">
+        <!--solicita token de autenticação-->
+            <form action="{% url 'escolas' %}" method="POST">{% csrf_token %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert {{message.tags}}">
+                            {{message}}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <div style="width: 50%" >
+
+                    <h1 class="titulo font-degrade borda-bottom-degrade">Cadastro Escola</h1>
+                    <br>
+                    <p>Nome:</p>
+                    <input type="text" class="form-control" value="{{nome_escola}}" name="nome_escola">
+                    <br>
+                    <p>CNPJ:
+                    <input type="text" class="form-control" value="{{cnpj_escola}}" name="cnpj_escola">
+                    <br>
+                    <p>Email:
+                    <input type="email" placeholder="exemple@email.com" class="form-control" name="email_escola">
+                    <br>
+                    <p>Endereço:</p>
+                    <input type="text" class="form-control" value="{{end_escola}}" name="end_escola">
+                    <br>
+                    <p>Telefone:</p>
+                    <input type="text" placeholder="+55 (00) 00000-0000" class="form-control" name="tel_escola">
+                    <br>
+                    <input type="submit" value="Salvar" class="btn btn-success btn-lg">
+
+                </div>
+            </form>
+        
+    </div>
+{% endblock %}

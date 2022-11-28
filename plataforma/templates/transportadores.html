@@ -1,0 +1,53 @@
+{% extends 'base_plataforma.html' %}
+{% load static %}
+
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'plataforma/css.css' %}">
+
+{% endblock %}
+
+{% block 'body' %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="box">
+    <!--cria card-->
+    <div class="card-body text-primary">
+        <!--solicita token de autenticação-->
+            <form action="{% url 'transportadores' %}" method="POST">{% csrf_token %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert {{message.tags}}">
+                            {{message}}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <div style="width: 70%">
+
+                    <h1 class="titulo font-degrade borda-bottom-degrade">Cadastro Transportadores</h1>
+                    <br>
+                    <p>Nome do Transportador:</p>
+                    <input type="text" class="form-control" value="{{primeiro_nome_transp}}" name="primeiro_nome_transp">
+                    <br>
+                    <p>CPF Transportador:
+                    <input type="text" class="form-control" value="{{cpf_transp}}" name="cpf_transp">
+                    <br>
+                    <p>Email Transportador:</p>
+                    <input type="text" class="form-control" value="{{email_transp}}" name="email_transp">
+                    <br>
+                    <p>Endereço do Transportador:</p>
+                    <input type="text" class="form-control" value="{{end_transp}}" name="end_transp">
+                    <br>
+                    <p>Telefone:</p>
+                    <input type="text" class="form-control" value="{{tel_trasp}}" name="tel_transp">
+                    <br>
+                    <input type="submit" value="Salvar" class="btn btn-success btn-lg">
+
+                </div>
+            </form>
+        
+    </div>
+{% endblock %}

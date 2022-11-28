@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
+from decouple import config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'autenticacao',
     'plataforma',
+    'envia_email',
 ]
 
 MIDDLEWARE = [
@@ -145,5 +148,13 @@ MESSAGE_TAGS = {
 
 # Email
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST_USER = "caleone@hotmail.com.br"
+#if DEBUG:
+#    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#else:
+DEFAULT_FROM_EMAIL = "caleone.univesp@gmail.com"
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = ('EMAIL_USE_TLS')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST = config('EMAIL_HOST')
